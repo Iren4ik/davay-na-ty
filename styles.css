@@ -1,0 +1,253 @@
+@font-face {
+  font-family: 'PPNeueMachina';
+  src: url('./fonts/PPNeueMachina-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, h1, h2, p, a {
+  font-family: 'PPNeueMachina', sans-serif;
+}
+
+body {
+  --color-pink: #FF93D4;
+  --color-red: #FF603D;
+  --color-light-blue: #79A0FF;
+  --color-blue: #015172;
+  --color-blue-second: #0A4175;
+  --color-white: #E5E5E5;
+  --color-snow-white: #FFFFFF;
+  --color-light-grey: #f4f4f4;
+  }
+
+.page {
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--color-light-grey);
+  color: #1a2a39;
+  max-width: 1600px;
+  overflow-x: hidden;
+}
+
+.header {
+  background-color: transparent;
+  max-width: 1600px;
+  position: fixed;
+  width: 100%;
+  z-index: 2
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 303px 0 72px;
+}
+
+.header__logo {
+  display: inline-block;
+  width: 67px;
+  height: 64px;
+}
+
+.header__logo-image {
+  width: 100%;
+  height: auto;
+}
+
+.header__logo-image:hover {
+  opacity: 0.7; 
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header__nav-item {
+  margin-left: 48px;
+  color: rgba(10, 65, 117, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20.5px;
+}
+
+.header__nav-link {
+  text-decoration: none;
+  color: rgba(10, 65, 117, 1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20.5px;
+}
+
+.header__nav-link:hover {
+  color: rgba(10, 65, 117, 0.7);
+}
+
+.main {
+  margin: 0 auto;
+}
+
+/* Обертка для анимации градиента */
+.main__gradient-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none; /* Обеспечивает, что элементы под градиентом останутся интерактивными */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.main__gradient-container {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 511.4px;
+  height: 511.4px;
+  transform: rotate(200deg);
+  border-radius: 50%;
+  background: 
+      linear-gradient(143.36deg, var(--color-blue) 10%, var(--color-red) 47%, var(--color-pink) 86%),
+      radial-gradient(circle at 30% 30%, var(--color-pink) 0%, rgba(255, 147, 212, 0) 100%),
+      radial-gradient(circle at 70% 10%, var(--color-red) 50%, rgba(255, 96, 61, 0) 100%),
+      radial-gradient(circle at 20% 150%, var(--color-light-blue) 5%, rgba(121, 160, 255, 0) 90%);
+  filter: blur(30px);
+  background-blend-mode: saturation;
+  /* background-blend-mode: hue; */
+  /* transform: translateX(30%) rotate(200deg); */
+  /* transition: width 0.5s ease, height 0.5s ease; */
+  transition: transform 0.1s ease-out; /* Плавное следование за курсором */
+  pointer-events: none; /* Отключаем взаимодействие с курсором */
+  max-width: 1870.2px;
+  max-height: 1870.2px;
+  z-index: 1;
+}
+
+.main__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 470.35px;
+  height: 470.35px;
+  max-width: 470.35px;
+  max-height: 470.35px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  filter: blur(80px); /* Размытие слоя */
+  mix-blend-mode: color-dodge; /* Эффект осветления */
+  transform: translate(-50%, -50%); /* Центровка ореола внутри градиентного круга */
+  pointer-events: none; /* Отключаем взаимодействие с курсором */
+  transition: transform 0.1s ease-out; /* Плавное следование за курсором */
+  z-index: 2;
+}
+
+.main__main-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 219px;
+}
+
+.main__title-container {
+  margin-right: 109px;
+  width: 723px;
+  color: rgba(10, 65, 117, 1);
+}
+
+.main__title {
+  font-size: clamp(30px, 6vw, 100px);
+  margin: 0;
+  font-weight: 400;
+  line-height: 102.5px;
+}
+
+.main__description {
+  font-size: clamp(16px, 3vw, 40px);
+  line-height: 1.5;
+  margin: 16px 0 24px 0;
+  font-weight: 400;
+  line-height: 44px;
+}
+
+.main__highlight {
+  font-style: italic;
+  color: rgba(10, 65, 117, 1);
+}
+
+.main__button {
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 5vw, 67px);
+  border: 1px solid var(--color-blue-second);
+  background-color: transparent;
+  color: var(--color-blue-second);
+  font-size: clamp(14px, 3vw, 20px);
+  font-weight: 400;
+  line-height: 20.5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 40px;
+}
+
+.main__button:hover {
+  background-color: var(--color-blue-second);
+  color: var(--color-snow-white);
+}
+
+.main__empty-section {
+  height: 800px;
+}
+
+.main__services {
+  display: flex;
+  padding-bottom: 134px;
+}
+
+.services__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0;
+  row-gap: 51px;
+  column-gap: 72px;
+  color: var(--color-white);
+}
+
+.services__item {
+  display: flex;
+  min-width: 250px;
+  width: 438px;
+  z-index: 2;
+}
+
+.services__icon {
+  max-height: 72px;
+  max-width: 72px;
+  min-height: 72px;
+  min-width: 72px;
+  margin-right: 16px;
+}
+
+.services__content {
+  font-weight: 400;
+}
+
+.services__title {
+  font-size: 1.5em;
+  margin: 0 0 17px 0;
+  font-size: 24px;
+  line-height: 24.6px;
+}
+
+.services__description {
+  font-size: 1em;
+  line-height: 1.5;
+  font-size: 20px;
+  line-height: 20.5px;
+}
